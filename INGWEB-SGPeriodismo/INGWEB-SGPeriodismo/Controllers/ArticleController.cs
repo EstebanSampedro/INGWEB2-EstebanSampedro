@@ -42,5 +42,16 @@ namespace INGWEB_SGPeriodismo.Controllers
             return response;
         }
 
+        [HttpPost]
+        [Route("ArticleApproval")]
+        public Response ArticleApproval(Article article)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new Dal();
+            response = dal.ArticleApproval(article, connection);
+            return response;
+        }
+
     }
 }

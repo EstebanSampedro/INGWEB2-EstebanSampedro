@@ -211,5 +211,89 @@ namespace INGWEB_SGPeriodismo.Models
             return response;
 
         }
+        public Response ArticleApproval(Article article, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("UPDATE Article SET IsApproved = 1 WHERE Id= '" + article.Id + "' AND IsActive = 1", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Articulo aprobado";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Articulo NO aprobado";
+            }
+
+            return response;
+        }
+        public Response StaffRegistration(Staff staff, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Staff(Name, Email, Password, IsActive) " +
+            "VALUES('" + staff.Name + "','" + staff.Email + "','" + staff.Password + "','" + staff.IsActive + "',1)", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Registro Staff exitoso";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Registro Staff fallido";
+
+            }
+
+            return response;
+        }
+        public Response DeleteStaff(Staff staff, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("DELETE FROM Staff WHERE ID= '" + staff.Name + "'AND IsActive=1", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Staff eliminado exitosamente";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Staff elimminado fallido";
+
+            }
+
+            return response;
+        }
+        public Response AddEvent(Events events, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Events(Title,Content,Email,IsActive,CreatedOn) " +
+            "VALUES('" + events.Title + "','" + events.Content + "','" + events.Email + "',1,GETDATE())", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Evento creado";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Evento creada FALLIDO";
+            }
+            return response;
+        }
+
     }
 }

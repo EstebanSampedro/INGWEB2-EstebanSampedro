@@ -23,7 +23,6 @@ namespace INGWEB_SGPeriodismo.Controllers
 
         [HttpPost]
         [Route("Registration")]
-
         public Response Registration(Registration registration)
         {
             Response response = new Response();
@@ -59,6 +58,32 @@ namespace INGWEB_SGPeriodismo.Controllers
             return response;
         }
 
-        
+        [HttpPost]
+        [Route("StaffRegistration")]
+        public Response StaffRegistration(Staff staff)
+        {
+            Response response = new Response();
+            //Connection streamline
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+
+            Dal dal = new Dal();
+            response = dal.StaffRegistration(staff, connection);
+            return response;
+        }
+
+        [HttpPost]
+        [Route("DeleteStaff")]
+        public Response DeleteStaff(Staff staff)
+        {
+            Response response = new Response();
+            //Connection streamline
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+
+            Dal dal = new Dal();
+            response = dal.DeleteStaff(staff, connection);
+            return response;
+        }
+
+
     }
 }
