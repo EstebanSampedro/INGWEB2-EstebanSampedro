@@ -294,6 +294,50 @@ namespace INGWEB_SGPeriodismo.Models
             }
             return response;
         }
+        public Response EventList(SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Events WHERE IsActive = 1", connection);
+            
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            List<Events> lstEvents = new List<Events>();
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Events event_ = new Events();
+                    event_.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
+                    event_.Title = Convert.ToString(dt.Rows[i]["Title"]);
+                    event_.Content = Convert.ToString(dt.Rows[i]["Content"]);
+                    event_.Email = Convert.ToString(dt.Rows[i]["Email"]);
+                    event_.IsActive = Convert.ToInt32(dt.Rows[i]["IsActive"]);
+                    event_.CreatedOn = Convert.ToString(dt.Rows[i]["CreatedOn"]);
+                    lstEvents.Add(event_);
+                }
+                if (lstEvents.Count > 0)
+                {
+                    response.StatusCode = 200;
+                    response.StatusMessage = "Datos de Articulo encontrados";
+                    response.listEvents = lstEvents;
+                }
+                else
+                {
+                    response.StatusCode = 100;
+                    response.StatusMessage = "Datos de Articulo NO encontrados";
+                    response.listEvents = null;
+                }
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Datos de Articulo NO encontrados";
+                response.listEvents = null;
+            }
+            return response;
+
+        }
 
     }
 }
