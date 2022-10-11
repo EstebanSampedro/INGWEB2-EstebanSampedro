@@ -2,14 +2,15 @@ import React, {useState} from "react";
 import axios from "axios";
 function Registration() {
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [phoneNo, setPhoneNo] = useState('')
+    const [ name, setName] = useState('')
+    const [ email, setEmail] = useState('')
+    const [ password, setPassword] = useState('')
+    const [ phoneNo, setPhoneNo] = useState('')
 
     const handleSave = (e) => {
         e.preventDefault();
-        console.log(name,email,password, phoneNo);
+        console.log(name, email, password, phoneNo);
+        const url = 'https://localhost:44306/api/Registration/Registration';
 
         const data = {
             Name : name,
@@ -17,13 +18,27 @@ function Registration() {
             Password : password,
             PhoneNo : phoneNo 
         }
-        axios.post('',data)
+        axios.post(url,data)
         .then((result) =>{
+            clear();
             const dt = result.data;
+            alert(dt.statusMessage);
         })
         .catch((error)=>{
             console.log(error);
         })
+    }
+
+    //LOGIN
+    const handleLogin = () => {
+        window.location.url = "/login";
+    }
+
+    const clear = () => {
+        setName('');
+        setEmail('');
+        setPhoneNo('');
+        setPassword('');
     }
 
     return (
@@ -50,7 +65,7 @@ function Registration() {
                                         </h3>
 
                                         <div className="row">
-                                            <div className="col-md-6 mb-4">
+                                            <div className="col-md-12 mb-4">
                                                 <div className="form-outline">
                                                     <input 
                                                     type="text" 
@@ -58,6 +73,7 @@ function Registration() {
                                                     className="form-control form-control-lg"
                                                     placeholder="Enter Full Name" 
                                                     onChange={(e) => setName(e.target.value)}
+                                                    value={name}
                                                     />
                                                     <label className="form-label" for="form3Example1m">
                                                         Enter name
@@ -71,9 +87,10 @@ function Registration() {
                                                     type="text" 
                                                     id="email" 
                                                     className="form-control form-control-lg"
-                                                    onChange={(e) => setEmail(e.target.value)} 
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                    value={email}
                                                     />
-                                                    <label className="form-label" for="form3Example1n">
+                                                    <label className="form-label" for="form3Example8">
                                                         Email ID
                                                         </label>
                                             
@@ -86,8 +103,9 @@ function Registration() {
                                                     id="Password" 
                                                     className="form-control form-control-lg" 
                                                     onChange={(e) => setPassword(e.target.value)}
+                                                    value={password}
                                                     />
-                                                    <label class="form-label" for="form3Example1m1">
+                                                    <label class="form-label" for="form3Example9">
                                                         Password
                                                     </label>
                                                 </div>
@@ -99,21 +117,31 @@ function Registration() {
                                                         id="PhoneNo" 
                                                         className="form-control form-control-lg" 
                                                         onChange={(e) => setPhoneNo(e.target.value)}
+                                                        value={phoneNo}
                                                         />
                                                     <label class="form-label" for="PhoneNo">
                                                         PhoneNo
                                                     </label>
                                                 </div>
 
-                                        <div class="d-flex justify-content-end pt-3">
+                                        <div className="d-flex justify-content-end pt-3">
                                             <button type="button" className="btn btn-light btn-lg">
                                                 Reset all
                                             </button>
                                             <button 
                                             type="button" 
                                             className="btn btn-warning btn-lg ms-2" 
-                                            onClick={(e) => handleSave(e)}>
+                                            onClick={(e) => handleSave(e)}
+                                            >
                                                 Submit form
+                                            </button>
+
+                                            <button 
+                                            type="button" 
+                                            className="btn btn-warning btn-lg ms-2" 
+                                            onClick={(e) => handleLogin(e)}
+                                            >
+                                                Login
                                             </button>
                                         </div>
 
