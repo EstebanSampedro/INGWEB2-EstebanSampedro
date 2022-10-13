@@ -17,7 +17,7 @@ namespace INGWEB_SGPeriodismo.Models
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
-            if(i>0)
+            if (i > 0)
             {
                 response.StatusCode = 200;
                 response.StatusMessage = "Registro exitoso";
@@ -28,13 +28,12 @@ namespace INGWEB_SGPeriodismo.Models
                 response.StatusMessage = "Registro fallido";
 
             }
-                
+
             return response;
         }
-
         public Response Login(Registration registration, SqlConnection connection)
         {
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Registration WHERE Email = '" + registration.Email + "' AND Password = '" + registration.Password + "'", connection);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Registration WHERE Email = '" + registration.Email + "' AND Password = '" + registration.Password +"' ", connection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             Response response = new Response();

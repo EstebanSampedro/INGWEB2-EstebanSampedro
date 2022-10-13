@@ -1,64 +1,98 @@
-import React from "react";
-
-function Login (){
-
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+import React, { useState } from "react";
+import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 
 
-    return(
-        <div>
-            <section class="vh-100">
-  <div class="container py-5 h-100">
-    <div class="row d-flex align-items-center justify-content-center h-100">
-      <div class="col-md-8 col-lg-7 col-xl-6">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-          class="img-fluid" alt="Phone"/>
-      </div>
-      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form>
-          
-          <div class="form-outline mb-4">
-            <input type="email" id="form1Example13" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example13">Email address</label>
-          </div>
+function Login() {
+  const navigate = useNavigate()
 
-          
-          <div class="form-outline mb-4">
-            <input type="password" id="form1Example23" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Password</label>
-          </div>
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-          <div class="d-flex justify-content-around align-items-center mb-4">
-            
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-              <label class="form-check-label" for="form1Example3"> Remember me </label>
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const data = {
+      Email: email,
+      Password: password
+    }
+
+    const url = `https://localhost:44306/api/Registration/Login`;
+    axios.post(url, data)
+      .then((result) => {
+        const dt = result.data;
+        
+          if(email === "admin" && password === "admin") {
+            localStorage.setItem("username", email);
+            navigate("/admindashboard");
+          } else {
+            localStorage.setItem("loggedEmail", email);
+            localStorage.setItem("username", dt.registration.name);
+            if(dt.registration.userType === 'STAFF')
+            navigate("/staffdashboard");
+            else
+            navigate("/userdashboard");
+          }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
+  return (
+    <div>
+      <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                class="img-fluid" alt="Phone" />
             </div>
-            <a href="#!">Forgot password?</a>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+              <form>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="email"
+                    id="form1Example13"
+                    class="form-control form-control-lg"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                  />
+                  <label class="form-label" for="form1Example13">Email address</label>
+                </div>
+
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="form1Example23"
+                    class="form-control form-control-lg"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                  />
+                  <label class="form-label" for="form1Example23">Password</label>
+                </div>
+
+                <div class="d-flex justify-content-around align-items-center mb-4">
+
+                  <a href="#!">Forgot password?</a>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block" onClick={(e) => handleLogin(e)}>
+                  Sign in
+                </button>
+
+                
+
+              </form>
+            </div>
           </div>
-
-          
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-
-          <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-          </div>
-
-          <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
-            role="button">
-            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
-          </a>
-          <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
-            role="button">
-            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
-
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
         </div>
-    )
+      </section>
+    </div>
+  )
 }
+
+export default Login;
