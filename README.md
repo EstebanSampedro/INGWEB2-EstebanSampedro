@@ -9,7 +9,7 @@ Sistema de Gestión Periodístico enfocado en el manejo/creación de articulos y
 
 ## Herramientas utilizadas
 - React.JS (FrontEnd)
-- .NET Core (BackEnd)
+- .NET Core Web API (BackEnd)
 - SQL SERVER
 
 ## Especificaciones de uso
