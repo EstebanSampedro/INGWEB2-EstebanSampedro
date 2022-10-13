@@ -18,7 +18,7 @@ Sistema de Gestión Periodístico enfocado en el manejo/creación de articulos y
 
 
 ### Paso 2: Ejecutar el archivo INGWEB-SGPeriodismo en Visual Studio
-- Debemos abrir el archivo INGWEB-SGUniversidad dentro de nuestro ambiente de Visual Studio y ejecutarlo.
+- Debemos abrir el archivo INGWEB-SGUPeriodismo dentro de nuestro ambiente de Visual Studio y ejecutarlo.
 
 
 ### Paso 3: Ejecutar el archivo frontendreact en Visual Studio Code
