@@ -31,7 +31,7 @@ function Registration() {
 
     //LOGIN
     const handleLogin = () => {
-        window.location.url = "/login";
+        window.location.href = "/";
     }
 
     const clear = () => {
@@ -61,7 +61,7 @@ function Registration() {
                                 <div className="col-xl-6">
                                     <div className="card-body p-md-5 text-black">
                                         <h3 className="mb-5 text-uppercase">
-                                            Student registration form
+                                            Registro de Usuario
                                         </h3>
 
                                         <div className="row">
@@ -76,7 +76,7 @@ function Registration() {
                                                     value={name}
                                                     />
                                                     <label className="form-label" for="form3Example1m">
-                                                        Enter name
+                                                        Nombre Completo
                                                         </label>
                                                     </div>
                                                 </div>
@@ -106,7 +106,7 @@ function Registration() {
                                                     value={password}
                                                     />
                                                     <label class="form-label" for="form3Example9">
-                                                        Password
+                                                        Contraseña
                                                     </label>
                                                 </div>
                                             
@@ -120,20 +120,18 @@ function Registration() {
                                                         value={phoneNo}
                                                         />
                                                     <label class="form-label" for="PhoneNo">
-                                                        PhoneNo
+                                                        Teléfono
                                                     </label>
                                                 </div>
 
                                         <div className="d-flex justify-content-end pt-3">
-                                            <button type="button" className="btn btn-light btn-lg">
-                                                Reset all
-                                            </button>
+                                            
                                             <button 
                                             type="button" 
                                             className="btn btn-warning btn-lg ms-2" 
                                             onClick={(e) => handleSave(e)}
                                             >
-                                                Submit form
+                                                Registrarse
                                             </button>
 
                                             <button 

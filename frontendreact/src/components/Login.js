@@ -27,11 +27,14 @@ function Login() {
             navigate("/admindashboard");
           } else {
             localStorage.setItem("loggedEmail", email);
-            localStorage.setItem("username", dt.registration.name);
-            if(dt.registration.userType === 'STAFF')
-            navigate("/staffdashboard");
-            else
-            navigate("/userdashboard");
+            localStorage.setItem("username", dt.Registration.name);
+            if(dt.Registration.userType === 'STAFF')
+            {
+              navigate("/staffdashboard");
+            }else{
+              navigate("/userdashboard");
+            }
+            
           }
       })
       .catch((error) => {
@@ -59,7 +62,7 @@ function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                   />
-                  <label class="form-label" for="form1Example13">Email address</label>
+                  <label class="form-label" for="form1Example13">Email</label>
                 </div>
 
 
@@ -71,7 +74,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
                   />
-                  <label class="form-label" for="form1Example23">Password</label>
+                  <label class="form-label" for="form1Example23">Contraseña</label>
                 </div>
 
                 <div class="d-flex justify-content-around align-items-center mb-4">

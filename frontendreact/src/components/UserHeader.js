@@ -7,12 +7,12 @@ export default function UserHeader(){
     const [username, setUserName] = useState("");
 
     useEffect(() => {
-        setUserName(localStorage.getItem("username"));
+        setUserName(localStorage.getItem("loggedEmail"));
     }, []); 
 
     const logout = (e) => {
         e.preventDefault();
-        localStorage.removeItem("username");
+        localStorage.removeItem("loggedEmail");
         navigate("/");
     };
 
@@ -20,9 +20,9 @@ export default function UserHeader(){
         <Fragment>
             <nav className="navbar navbar-expand-lg narvar-dark bg-dark">
                 <a className="navbar-brand" href="#">
-                    Social Network
+                    Sistema de Gestión Peridístico
                 </a>
-                <button
+                {/* <button
                 className="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
@@ -32,13 +32,13 @@ export default function UserHeader(){
                 aria-label="Toggle navigation"
                 >
                 <span className="navbar-toggler-icon"></span>
-                </button>
+                </button> */}
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
                             <a className="nav-link" href="#">
-                                Welcome <span className="sr-only">(current)</span>
+                                Welcome <span className="sr-only"></span>
                                 {username}
                             </a>
                         </li>
