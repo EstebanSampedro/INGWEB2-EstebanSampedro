@@ -1,11 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "alFEVVizAIMd/ZHdPsJ67CPoiskISSl3NjdsGByTEwlnalqp7UXez1jrUrkgs+xZthA6JiikMrR58mbZ8C3PnQ==",
+  "dgSpecHash": "H8TpoXo7qC8kocWgXtv5IugslviaoOhv/aW5Y6/IJCWrv2E2IVB29Ljg0WVpQ/QOJ2B2gSCxwljNnw3ljbBkRQ==",
   "success": true,
   "projectFilePath": "D:\\dev\\GitHub Desktop\\INGWEB2-EstebanSampedro\\INGWEB-SGPeriodismo\\INGWEB-SGPeriodismo\\INGWEB-SGPeriodismo.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Chaval\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.16\\microsoft.aspnetcore.jsonpatch.3.1.16.nupkg.sha512",
+    "C:\\Users\\Chaval\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.16\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.16.nupkg.sha512",
+    "C:\\Users\\Chaval\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Chaval\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Chaval\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Chaval\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\Chaval\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\Chaval\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Chaval\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Chaval\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
