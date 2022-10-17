@@ -26,7 +26,6 @@ namespace INGWEB_SGPeriodismo.Models
             {
                 response.StatusCode = 100;
                 response.StatusMessage = "Registro fallido";
-
             }
 
             return response;
@@ -165,11 +164,11 @@ namespace INGWEB_SGPeriodismo.Models
             SqlDataAdapter da = null;
             if (article.type == "User")
             {
-                new SqlDataAdapter("SELECT * FROM Article WHERE Email = '"+article.Email+"' AND IsActive = 1", connection);
+                da = new SqlDataAdapter("SELECT * FROM Article WHERE Email = '"+article.Email+"' AND IsActive = 1", connection);
             }
             if(article.type == "Page")
             {
-                new SqlDataAdapter("SELECT * FROM Article WHERE IsActive = 1", connection);
+                da = new SqlDataAdapter("SELECT * FROM Article WHERE IsActive = 1", connection);
             }
             
             DataTable dt = new DataTable();
