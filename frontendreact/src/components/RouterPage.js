@@ -7,6 +7,8 @@ import AdminDashboard from './AdminDashboard';
 import RegistrationList from './RegistrationList'
 import ArticleList from './ArticleList';
 import News from './News';
+import Staff from './Staff'
+import UserArticle from './UserArticle';
 
 export default function RouterPage()
 {
@@ -20,6 +22,8 @@ export default function RouterPage()
                 <Route path='/registrationlist' element={<RegistrationList/>} />
                 <Route path='/articlelist' element={<ArticleList/>} />
                 <Route path='/news' element={<News/>} />
+                <Route path='/staff' element={<Staff/>} />
+                <Route path='/userarticle' element={<UserArticle/>} />
 
             </Routes>
         </Router>

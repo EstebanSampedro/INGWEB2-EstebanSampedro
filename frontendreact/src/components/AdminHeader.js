@@ -32,7 +32,7 @@ export default function AdminHeader(){
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
                             <a className="nav-link" href="#">
-                                Welcome <span className="sr-only"></span>
+                                Bienvenido <span className="sr-only"></span>
                                 Admin
                             </a>
                         </li>
@@ -55,7 +55,7 @@ export default function AdminHeader(){
                             type="submit"
                             onClick={(e) => logout(e)}
                             >
-                                Logout
+                                Cerrar Sesion
                             </button>
                     </form>
                 </div>

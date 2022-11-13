@@ -37,8 +37,8 @@ export default function ArticleList() {
         .post(url,data)
         .then((result) => {
             const dt = result.data;
-            if(dt.statusCode === 200){
-            alert('Approved')
+            if(dt.StatusCode === 200){
+            alert('Aprobado exitosamente!')
             getData();
             }
         })
@@ -56,12 +56,12 @@ export default function ArticleList() {
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Content</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Contenido</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">IsApproved</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Imagen</th>
+                            {/* <th scope="col">IsApproved</th> */}
+                            <th scope="col">Accion ADMIN</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -70,15 +70,15 @@ export default function ArticleList() {
                                 return(
                                     <tr>
                                         <th scope="row">{index+1}</th>
-                                        <td>{val.title}</td>
-                                        <td>{val.content}</td>
-                                        <td>{val.email}</td>
-                                        <td>{val.image}</td>
-                                        <td>{val.isApproved}</td>
+                                        <td>{val.Title}</td>
+                                        <td>{val.Content}</td>
+                                        <td>{val.Email}</td>
+                                        <td>{val.Image}</td>
+                                        {/* <td>{val.IsApproved}</td> */}
                                         <td>
-                                         {val.isApproved === 0 ?
-                                         <button className="btn btn-primary" onClick={(e) => handleApprove(e, val.id)}>
-                                            Mark Approved
+                                         {val.IsApproved === 0 ?
+                                         <button className="btn btn-primary" onClick={(e) => handleApprove(e, val.Id)}>
+                                            Aprobar
                                          </button>
                                          :
                                          "Already Approved"
